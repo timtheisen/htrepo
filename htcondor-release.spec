@@ -1,5 +1,5 @@
 Name:           htcondor-release
-Version:        8.8
+Version:        8.9
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
@@ -70,6 +70,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
 
 %changelog
+* Wed Sep 14 2020 Tim Theisen <tim@cs.wisc.edu> - 8.9-1
+- Bump release series number for development release
+
 * Mon Sep 14 2020 Tim Theisen <tim@cs.wisc.edu> - 8.8-1
 - Initial package
 
