@@ -1,0 +1,24 @@
+[<yumrepo>]
+name=HTCondor for <Platform-Name> - <Repo-Name>
+baseurl=https://research.cs.wisc.edu/htcondor/repo/<version>/<platform>/<repo>
+enabled=<Enabled>
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
+priority=90
+
+[<yumrepo>-debuginfo]
+name=HTCondor for <Platform-Name> - <Repo-Name> - Debug
+baseurl=https://research.cs.wisc.edu/htcondor/repo/<version>/<platform>/<repo>/debug
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
+priority=90
+
+[<yumrepo>-source]
+name=HTCondor for <Platform-Name> - <Repo-Name> - Source
+baseurl=https://research.cs.wisc.edu/htcondor/repo/<version>/<platform>/<repo>/SRPMS
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
+priority=90
+
