@@ -1,6 +1,6 @@
 Name:           htcondor-release
 Version:        8.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
 License:        ASL 2.0
@@ -45,9 +45,9 @@ exit 0
 %define platform "amzn%{amzn}"
 %endif
 
-%{SOURCE0} %{version} release     1 %{platform} %{platformname}
-%{SOURCE0} %{version} testing     0 %{platform} %{platformname}
-%{SOURCE0} %{version} development 0 %{platform} %{platformname}
+%{SOURCE0} %{version} release 1 %{platform} %{platformname}
+%{SOURCE0} %{version} rc      0 %{platform} %{platformname}
+%{SOURCE0} %{version} daily   0 %{platform} %{platformname}
 
 %install
 
