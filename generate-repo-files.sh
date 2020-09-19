@@ -5,7 +5,7 @@ usage () {
   echo "usage: $(basename "$0") version repository enabled platform PlatformName"
   echo
   echo "version examples: 8.8, 9.0, latest"
-  echo "reposity examples: release, testing, development"
+  echo "reposity examples: release, rc, daily"
   echo "enabled values: 0, 1"
   echo "platform examples: el7, el8, amzn2, fc32"
   echo "PlatformName examples: Enterprise Linux 7, Amazon Linux 2"
