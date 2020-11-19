@@ -1,6 +1,6 @@
 Name:           htcondor-release
 Version:        8.9
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
 License:        ASL 2.0
@@ -70,7 +70,19 @@ rm -f *.repo
 /etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
 
 %changelog
-* Wed Sep 14 2020 Tim Theisen <tim@cs.wisc.edu> - 8.9-1
+* Thu Nov 19 2020 Tim Theisen <tim@cs.wisc.edu> - 8.9-3
+- merge changes from 8.8
+
+* Thu Nov 19 2020 Tim Theisen <tim@cs.wisc.edu> - 8.8-3
+- latest renamed to current
+
+* Sat Sep 19 2020 Tim Theisen <tim@cs.wisc.edu> - 8.9-2
+- merge changes from 8.8
+
+* Sat Sep 19 2020 Tim Theisen <tim@cs.wisc.edu> - 8.8-2
+- development renamed to daily, testing renamed to rc
+
+* Wed Sep 16 2020 Tim Theisen <tim@cs.wisc.edu> - 8.9-1
 - Bump release series number for development release
 
 * Mon Sep 14 2020 Tim Theisen <tim@cs.wisc.edu> - 8.8-1
