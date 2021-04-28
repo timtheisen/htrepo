@@ -1,6 +1,6 @@
 Name:           htcondor-release
-Version:        9.0
-Release:        3%{?dist}
+Version:        9.1
+Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
 License:        ASL 2.0
@@ -13,8 +13,8 @@ URL:            https://htcondor.org/
 Source0:        generate-repo-files.sh
 Source1:        repo.template
 Source2:        RPM-GPG-KEY-HTCondor
-Source3:        HTCondor-9.0-Key
-Source4:        HTCondor-9.0-Daily-Key
+Source3:        HTCondor-9.1-Key
+Source4:        HTCondor-9.1-Daily-Key
 
 BuildArch:      noarch
 
@@ -58,9 +58,9 @@ mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 install -pm 644 %{SOURCE2} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
 install -pm 644 %{SOURCE3} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.1
 install -pm 644 %{SOURCE4} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0-Daily
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.1-Daily
 
 # yum
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
@@ -74,10 +74,13 @@ rm -f *.repo
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0-Daily
+/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.1
+/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.1-Daily
 
 %changelog
+* Wed Apr 28 2021 Tim Theisen <tim@cs.wisc.edu> - 9.1-1
+- HTCondor 9.1 repository definition
+
 * Wed Apr 21 2021 Tim Theisen <tim@cs.wisc.edu> - 9.0-3
 - Daily key for 9.0
 
