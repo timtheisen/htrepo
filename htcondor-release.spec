@@ -1,5 +1,5 @@
 Name:           htcondor-release
-Version:        8.9
+Version:        9.0
 Release:        3%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
@@ -13,6 +13,8 @@ URL:            https://htcondor.org/
 Source0:        generate-repo-files.sh
 Source1:        repo.template
 Source2:        RPM-GPG-KEY-HTCondor
+Source3:        HTCondor-9.0-Key
+Source4:        HTCondor-9.0-Daily-Key
 
 BuildArch:      noarch
 
@@ -55,6 +57,10 @@ exit 0
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 install -pm 644 %{SOURCE2} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
+install -pm 644 %{SOURCE3} \
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0
+install -pm 644 %{SOURCE4} \
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0-Daily
 
 # yum
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
@@ -68,8 +74,16 @@ rm -f *.repo
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor
+/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0
+/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.0-Daily
 
 %changelog
+* Wed Apr 21 2021 Tim Theisen <tim@cs.wisc.edu> - 9.0-3
+- Daily key for 9.0
+
+* Wed Apr 14 2021 Tim Theisen <tim@cs.wisc.edu> - 9.0-1
+- New key for 9.0
+
 * Thu Nov 19 2020 Tim Theisen <tim@cs.wisc.edu> - 8.9-3
 - merge changes from 8.8
 

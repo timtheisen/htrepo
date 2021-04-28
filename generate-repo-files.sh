@@ -44,6 +44,12 @@ else
     YUM_REPO="htcondor-$REPO"
 fi
 
+if [ $REPO = 'daily' ]; then
+    DAILY='-Daily'
+else
+    DAILY=''
+fi
+
 if [[ ! -e $TEMPLATEDIR/repo.template ]]; then
     echo "Error: repo.template does not exist!" >&2
     exit
@@ -57,6 +63,7 @@ sed "
     s/<repo>/$REPO/
     s/<Repo-Name>/$REPO_NAME/
     s/<Enabled>/$ENABLED/
+    s/<Daily>/$DAILY/
 " "$TEMPLATEDIR/repo.template" > "$YUM_REPO.repo"
 
 echo "Wrote: $YUM_REPO.repo"
