@@ -12,8 +12,8 @@ URL:            https://htcondor.org/
 
 Source0:        generate-repo-files.sh
 Source1:        repo.template
-Source2:        HTCondor-10.0-Key
-Source3:        HTCondor-10.0-Daily-Key
+Source2:        HTCondor-%{version}-Key
+Source3:        HTCondor-%{version}-Daily-Key
 
 BuildArch:      noarch
 
@@ -56,9 +56,9 @@ exit 0
 #GPG Key
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 install -pm 644 %{SOURCE2} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.0
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}
 install -pm 644 %{SOURCE3} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.0-Daily
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}-Daily
 
 # yum
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
@@ -71,11 +71,11 @@ rm -f *.repo
 %files
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/*
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.0
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.0-Daily
+/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}
+/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}-Daily
 
 %changelog
-* Thu Nov 10 2022 Tim Theisen <tim@cs.wisc.edu> - 10.0-1
+* Fri Nov 11 2022 Tim Theisen <tim@cs.wisc.edu> - 10.0-1
 - HTCondor 10.0 repository definition
 
 * Wed Apr 28 2021 Tim Theisen <tim@cs.wisc.edu> - 9.1-1

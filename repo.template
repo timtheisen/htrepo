@@ -4,7 +4,7 @@ baseurl=https://research.cs.wisc.edu/htcondor/repo/<version>/<platform>/$basearc
 enabled=<Enabled>
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.1<Daily>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-<version><Daily>
 priority=90
 
 [<yumrepo>-debuginfo]
@@ -13,7 +13,7 @@ baseurl=https://research.cs.wisc.edu/htcondor/repo/<version>/<platform>/$basearc
 enabled=0
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.1<Daily>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-<version><Daily>
 priority=90
 
 [<yumrepo>-source]
@@ -22,6 +22,6 @@ baseurl=https://research.cs.wisc.edu/htcondor/repo/<version>/<platform>/$basearc
 enabled=0
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-9.1<Daily>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-<version><Daily>
 priority=90
 
