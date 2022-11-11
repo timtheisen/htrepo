@@ -1,5 +1,5 @@
 Name:           htcondor-release
-Version:        10.0
+Version:        10.1
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
@@ -75,6 +75,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}-Daily
 
 %changelog
+* Fri Nov 11 2022 Tim Theisen <tim@cs.wisc.edu> - 10.1-1
+- HTCondor 10.1 repository definition
+
 * Fri Nov 11 2022 Tim Theisen <tim@cs.wisc.edu> - 10.0-1
 - HTCondor 10.0 repository definition
 
