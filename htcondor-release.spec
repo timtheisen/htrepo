@@ -1,5 +1,5 @@
 Name:           htcondor-release
-Version:        10.1
+Version:        10.x
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
