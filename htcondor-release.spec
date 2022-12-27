@@ -1,7 +1,6 @@
 Name:           htcondor-release
 #Name:           htcondor-release-suffix
 Version:        10.x
-Version:        10.0
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
