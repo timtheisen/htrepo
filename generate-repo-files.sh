@@ -50,6 +50,9 @@ if [ ! -e "$TEMPLATEDIR/repo.template" ]; then
     exit
 fi
 
+TEST=''
+#TEST='-test'
+
 sed "
     s/<yumrepo>/$YUM_REPO/
     s/<Platform-Name>/$PLATFORM_NAME/
@@ -59,6 +62,7 @@ sed "
     s/<Repo-Name>/$REPO_NAME/
     s/<Enabled>/$ENABLED/
     s/<Daily>/$DAILY/
+    s/<test>/$TEST/
 " "$TEMPLATEDIR/repo.template" > "$YUM_REPO.repo"
 
 echo "Wrote: $YUM_REPO.repo"
