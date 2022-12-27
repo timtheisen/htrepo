@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 usage () {
@@ -27,28 +27,31 @@ ENABLED=$1
 shift
 PLATFORM=$1
 shift
-PLATFORM_NAME=$@
+PLATFORM_NAME=$*
 
-if [ $ENABLED -ne 0 -a $ENABLED -ne 1 ]; then
+if [ "$ENABLED" -ne 0 ] && [ "$ENABLED" -ne 1 ]; then
     usage
 fi
 
-if [ $REPO = 'release' ]; then
+if [ "$REPO" = 'release' ]; then
     YUM_REPO='htcondor'
 else
     YUM_REPO="htcondor-$REPO"
 fi
 
-if [ $REPO = 'daily' ]; then
+if [ "$REPO" = 'daily' ]; then
     DAILY='-Daily'
 else
     DAILY=''
 fi
 
-if [[ ! -e $TEMPLATEDIR/repo.template ]]; then
+if [ ! -e "$TEMPLATEDIR/repo.template" ]; then
     echo "Error: repo.template does not exist!" >&2
     exit
 fi
+
+#SUFFIX='-test'
+SUFFIX=''
 
 sed "
     s/<yumrepo>/$YUM_REPO/
@@ -59,6 +62,7 @@ sed "
     s/<Repo-Name>/$REPO_NAME/
     s/<Enabled>/$ENABLED/
     s/<Daily>/$DAILY/
+    s/<suffix>/$SUFFIX/
 " "$TEMPLATEDIR/repo.template" > "$YUM_REPO.repo"
 
 echo "Wrote: $YUM_REPO.repo"
