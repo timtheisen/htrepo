@@ -37,7 +37,7 @@ exit 0
 
 %if 0%{?fedora}
 %define platformname "Fedora %{fedora}"
-%define platform "fc%{fedora}"
+%define platform "f%{fedora}"
 %endif
 
 # Amazon Linux needs to go after rhel (both are defined)
