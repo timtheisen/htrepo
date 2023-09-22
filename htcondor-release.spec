@@ -1,5 +1,5 @@
 Name:           htcondor-release
-Version:        23.0
+Version:        23.x
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
@@ -49,6 +49,7 @@ exit 0
 %endif
 
 %{SOURCE0} %{version} release 1 %{platform} %{platformname}
+%{SOURCE0} %{version} update  0 %{platform} %{platformname}
 %{SOURCE0} %{version} rc      0 %{platform} %{platformname}
 %{SOURCE0} %{version} daily   0 %{platform} %{platformname}
 
@@ -82,6 +83,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.x-Daily
 
 %changelog
+* Thu Aug 24 2023 Tim Theisen <tim@cs.wisc.edu> - 23.x-1
+- HTCondor 23.x repository definition
+
 * Thu Aug 24 2023 Tim Theisen <tim@cs.wisc.edu> - 23.0-1
 - HTCondor 23.0 repository definition
 
