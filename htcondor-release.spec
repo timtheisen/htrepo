@@ -1,6 +1,12 @@
+%if 0%{?suse_version}
+%if %{suse_version} == 1500
+%define dist .leap15
+%endif
+%endif
+
 Name:           htcondor-release
 Version:        23.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
 License:        ASL 2.0
@@ -23,6 +29,7 @@ BuildArch:      noarch
 Requires:       epel-release = %{rhel}
 %endif
 
+%define packager yum.
 %description
 This package contains the HTCondor Software for Enterprise Linux repository
 configuration for yum.
@@ -40,6 +47,15 @@ exit 0
 %if 0%{?fedora}
 %define platformname "Fedora %{fedora}"
 %define platform "fc%{fedora}"
+%endif
+
+%if 0%{?suse_version}
+%define packager zypp/
+%if %{suse_version} == 1500
+%define platformname "openSUSE Leap 15"
+%define platform "leap15"
+%define dist .leap15
+%endif
 %endif
 
 # Amazon Linux needs to go after rhel (both are defined)
@@ -65,23 +81,21 @@ install -pm 644 %{SOURCE4} \
 install -pm 644 %{SOURCE5} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.x-Daily
 
-# yum
-mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
-
-install -m 644 *.repo $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
+mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/%{packager}repos.d
+install -m 644 *.repo $RPM_BUILD_ROOT%{_sysconfdir}/%{packager}repos.d
 
 %clean
 rm -f *.repo
 
 %files
 %defattr(-,root,root,-)
-%config(noreplace) /etc/yum.repos.d/*
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}-Daily
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.x
-/etc/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.x-Daily
+%config(noreplace) /etc/%{packager}repos.d/*
+/etc/pki/rpm-gpg/*
 
 %changelog
+* Tue Nov 28 2023 Tim Theisen <tim@cs.wisc.edu> - 23.0-2
+- Add openSUSE LEAP 15
+
 * Thu Aug 24 2023 Tim Theisen <tim@cs.wisc.edu> - 23.0-1
 - HTCondor 23.0 repository definition
 
