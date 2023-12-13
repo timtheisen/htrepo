@@ -97,11 +97,11 @@ rm -f *.repo
 * Wed Dec 13 2023 Tim Theisen <tim@cs.wisc.edu> - 23.x-2
 - Add openSUSE LEAP 15
 
-* Thu Aug 24 2023 Tim Theisen <tim@cs.wisc.edu> - 23.x-1
-- HTCondor 23.x repository definition
-
 * Tue Nov 28 2023 Tim Theisen <tim@cs.wisc.edu> - 23.0-2
 - Add openSUSE LEAP 15
+
+* Thu Aug 24 2023 Tim Theisen <tim@cs.wisc.edu> - 23.x-1
+- HTCondor 23.x repository definition
 
 * Thu Aug 24 2023 Tim Theisen <tim@cs.wisc.edu> - 23.0-1
 - HTCondor 23.0 repository definition
