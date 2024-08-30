@@ -5,8 +5,8 @@
 %endif
 
 Name:           htcondor-release
-Version:        23.x
-Release:        2%{?dist}
+Version:        24.0
+Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
 License:        ASL 2.0
@@ -18,10 +18,10 @@ URL:            https://htcondor.org/
 
 Source0:        generate-repo-files.sh
 Source1:        repo.template
-Source2:        RPM-GPG-KEY-OSG-23-developer
-Source3:        RPM-GPG-KEY-OSG-23-auto
-Source4:        HTCondor-10.x-Key
-Source5:        HTCondor-10.x-Daily-Key
+Source2:        RPM-GPG-KEY-OSG-24-dev
+Source3:        RPM-GPG-KEY-OSG-24-auto
+Source4:        RPM-GPG-KEY-OSG-23-developer
+Source5:        RPM-GPG-KEY-OSG-23-auto
 
 BuildArch:      noarch
 
@@ -29,10 +29,8 @@ BuildArch:      noarch
 Requires:       epel-release = %{rhel}
 %endif
 
-%define packager yum.
 %description
-This package contains the HTCondor Software for Enterprise Linux repository
-configuration for yum.
+Repository definitions for the HTCondor Software Suite
 
 %prep
 exit 0
@@ -49,6 +47,7 @@ exit 0
 %define platform "fc%{fedora}"
 %endif
 
+%define packager yum.
 %if 0%{?suse_version}
 %define packager zypp/
 %if %{suse_version} == 1500
@@ -64,10 +63,10 @@ exit 0
 %define platform "amzn%{amzn}"
 %endif
 
-%{SOURCE0} %{version} release 1 %{platform} %{platformname}
-%{SOURCE0} %{version} update  0 %{platform} %{platformname}
-%{SOURCE0} %{version} rc      0 %{platform} %{platformname}
-%{SOURCE0} %{version} daily   0 %{platform} %{platformname}
+%{SOURCE0} %{version} snapshot 0 %{platform} %{platformname}
+%{SOURCE0} %{version} alpha    0 %{platform} %{platformname}
+%{SOURCE0} %{version} beta     0 %{platform} %{platformname}
+%{SOURCE0} %{version} release  1 %{platform} %{platformname}
 
 %install
 
@@ -76,11 +75,11 @@ mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 install -pm 644 %{SOURCE2} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}
 install -pm 644 %{SOURCE3} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}-Daily
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}-Snapshot
 install -pm 644 %{SOURCE4} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.x
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-23
 install -pm 644 %{SOURCE5} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-10.x-Daily
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-23-Daily
 
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/%{packager}repos.d
 install -m 644 *.repo $RPM_BUILD_ROOT%{_sysconfdir}/%{packager}repos.d
@@ -94,6 +93,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Fri Aug 30 2024 Tim Theisen <tim@cs.wisc.edu> - 24.0-1
+- HTCondor 24.0 repository definition
+
 * Wed Dec 13 2023 Tim Theisen <tim@cs.wisc.edu> - 23.x-2
 - Add openSUSE LEAP 15
 

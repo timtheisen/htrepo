@@ -5,7 +5,7 @@ usage () {
   echo "usage: $(basename "$0") version repository enabled platform PlatformName"
   echo
   echo "version examples: 8.8, 9.0, 9.1"
-  echo "reposity examples: release, rc, daily"
+  echo "reposity examples: snapshot, alpha, beta, release"
   echo "enabled values: 0, 1"
   echo "platform examples: el7, el8, amzn2, fc32"
   echo "PlatformName examples: Enterprise Linux 7, Amazon Linux 2"
@@ -39,10 +39,10 @@ else
     YUM_REPO="htcondor-$REPO"
 fi
 
-if [ "$REPO" = 'daily' ]; then
-    DAILY='-Daily'
+if [ "$REPO" = 'snapshot' ]; then
+    SNAPSHOT='-Snapshot'
 else
-    DAILY=''
+    SNAPSHOT=''
 fi
 
 if [ ! -e "$TEMPLATEDIR/repo.template" ]; then
@@ -61,7 +61,7 @@ sed "
     s/<repo>/$REPO/
     s/<Repo-Name>/$REPO_NAME/
     s/<Enabled>/$ENABLED/
-    s/<Daily>/$DAILY/
+    s/<Snapshot>/$SNAPSHOT/
     s/<suffix>/$SUFFIX/
 " "$TEMPLATEDIR/repo.template" > "$YUM_REPO.repo"
 
