@@ -45,6 +45,11 @@ else
     SNAPSHOT=''
 fi
 
+SEARCH='$basearch'
+if rpm -qf /bin/sh | grep -q 'x86_64_v2'; then
+    SEARCH='x86_64_v2'
+fi
+
 if [ ! -e "$TEMPLATEDIR/repo.template" ]; then
     echo "Error: repo.template does not exist!" >&2
     exit
@@ -63,6 +68,7 @@ sed "
     s/<Enabled>/$ENABLED/
     s/<Snapshot>/$SNAPSHOT/
     s/<suffix>/$SUFFIX/
+    s/<basearch>/$SEARCH/
 " "$TEMPLATEDIR/repo.template" > "$YUM_REPO.repo"
 
 echo "Wrote: $YUM_REPO.repo"
