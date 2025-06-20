@@ -23,7 +23,12 @@ Source3:        RPM-GPG-KEY-OSG-24-auto
 Source4:        RPM-GPG-KEY-OSG-23-developer
 Source5:        RPM-GPG-KEY-OSG-23-auto
 
+
+%if 0%{?x86_64_v2}
+BuildArch: x86_64_v2
+%else
 BuildArch:      noarch
+%endif
 
 %if 0%{?rhel} && ! 0%{?amzn}
 Requires:       epel-release = %{rhel}
