@@ -92,6 +92,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Tue Sep 09 2025 Tim Theisen <tim@cs.wisc.edu> - 24.0-2
+- Switch to repositories at htcss-downloads.chtc.wisc.edu
+
 * Fri Aug 30 2024 Tim Theisen <tim@cs.wisc.edu> - 24.0-1
 - HTCondor 24.0 repository definition
 
