@@ -1,6 +1,6 @@
 [<yumrepo><suffix>]
 name=HTCondor for <Platform-Name> - <Repo-Name>
-baseurl=https://research.cs.wisc.edu/htcondor/repo<suffix>/<version>/<platform>/<basearch>/<repo>
+baseurl=https://htcss-downloads.chtc.wisc.edu/repo<suffix>/<version>/<platform>/<basearch>/<repo>
 enabled=<Enabled>
 gpgcheck=1
 repo_gpgcheck=1
@@ -9,7 +9,7 @@ priority=90
 
 [<yumrepo><suffix>-debuginfo]
 name=HTCondor for <Platform-Name> - <Repo-Name> - Debug
-baseurl=https://research.cs.wisc.edu/htcondor/repo<suffix>/<version>/<platform>/<basearch>/<repo>/debug
+baseurl=https://htcss-downloads.chtc.wisc.edu/repo<suffix>/<version>/<platform>/<basearch>/<repo>/debug
 enabled=0
 gpgcheck=1
 repo_gpgcheck=1
@@ -18,7 +18,7 @@ priority=90
 
 [<yumrepo><suffix>-source]
 name=HTCondor for <Platform-Name> - <Repo-Name> - Source
-baseurl=https://research.cs.wisc.edu/htcondor/repo<suffix>/<version>/<platform>/<basearch>/<repo>/SRPMS
+baseurl=https://htcss-downloads.chtc.wisc.edu/repo<suffix>/<version>/<platform>/<basearch>/<repo>/SRPMS
 enabled=0
 gpgcheck=1
 repo_gpgcheck=1
