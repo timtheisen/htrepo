@@ -6,7 +6,7 @@
 
 Name:           htcondor-release
 Version:        24.x
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
 License:        ASL 2.0
@@ -20,8 +20,6 @@ Source0:        generate-repo-files.sh
 Source1:        repo.template
 Source2:        RPM-GPG-KEY-OSG-24-dev
 Source3:        RPM-GPG-KEY-OSG-24-auto
-Source4:        RPM-GPG-KEY-OSG-23-developer
-Source5:        RPM-GPG-KEY-OSG-23-auto
 
 
 %if 0%{?x86_64_v2}
@@ -81,10 +79,6 @@ install -pm 644 %{SOURCE2} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}
 install -pm 644 %{SOURCE3} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-%{version}-Snapshot
-install -pm 644 %{SOURCE4} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-23
-install -pm 644 %{SOURCE5} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-HTCondor-23-Daily
 
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/%{packager}repos.d
 install -m 644 *.repo $RPM_BUILD_ROOT%{_sysconfdir}/%{packager}repos.d
@@ -98,6 +92,12 @@ rm -f *.repo
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Tue Sep 09 2025 Tim Theisen <tim@cs.wisc.edu> - 24.x-2
+- Switch to repositories at htcss-downloads.chtc.wisc.edu
+
+* Tue Sep 09 2025 Tim Theisen <tim@cs.wisc.edu> - 24.0-2
+- Switch to repositories at htcss-downloads.chtc.wisc.edu
+
 * Mon Oct 07 2024 Tim Theisen <tim@cs.wisc.edu> - 24.x-1
 - HTCondor 24.x repository definition
 
