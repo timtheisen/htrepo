@@ -5,8 +5,8 @@
 %endif
 
 Name:           htcondor-release
-Version:        24.x
-Release:        2%{?dist}
+Version:        25.0
+Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
 License:        ASL 2.0
@@ -18,8 +18,8 @@ URL:            https://htcondor.org/
 
 Source0:        generate-repo-files.sh
 Source1:        repo.template
-Source2:        RPM-GPG-KEY-OSG-24-dev
-Source3:        RPM-GPG-KEY-OSG-24-auto
+Source2:        RPM-GPG-KEY-OSG-25-developer
+Source3:        RPM-GPG-KEY-OSG-25-auto
 
 
 %if 0%{?x86_64_v2}
@@ -92,6 +92,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Tue Sep 09 2025 Tim Theisen <tim@cs.wisc.edu> - 25.0-1
+- HTCondor 25.0 repository definition
+
 * Tue Sep 09 2025 Tim Theisen <tim@cs.wisc.edu> - 24.x-2
 - Switch to repositories at htcss-downloads.chtc.wisc.edu
 
