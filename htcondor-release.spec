@@ -1,6 +1,13 @@
 %if 0%{?suse_version}
 %if %{suse_version} == 1500
+%if "%{os_release_id}" == "sles"
+%define dist .sles15sp5
+%else
 %define dist .leap15
+%endif
+%endif
+%if %{suse_version} == 1600
+%define dist .leap16
 %endif
 %endif
 
@@ -9,7 +16,7 @@ Version:        25.x
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            https://htcondor.org/
 
 # This is an HTCondor Software maintained package which is specific to
@@ -54,9 +61,20 @@ exit 0
 %if 0%{?suse_version}
 %define packager zypp/
 %if %{suse_version} == 1500
+%if "%{os_release_id}" == "sles"
+%define platformname "SLES 15 SP5"
+%define platform "sles15sp5"
+%define dist .sles15sp5
+%else
 %define platformname "openSUSE Leap 15"
 %define platform "leap15"
 %define dist .leap15
+%endif
+%endif
+%if %{suse_version} == 1600
+%define platformname "openSUSE Leap 16"
+%define platform "leap16"
+%define dist .leap16
 %endif
 %endif
 
