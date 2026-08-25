@@ -12,7 +12,7 @@
 %endif
 
 Name:           htcondor-release
-Version:        25.x
+Version:        25.0
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
@@ -25,8 +25,8 @@ URL:            https://htcondor.org/
 
 Source0:        generate-repo-files.sh
 Source1:        repo.template
-Source2:        RPM-GPG-KEY-OSG-25-developer
-Source3:        RPM-GPG-KEY-OSG-25-auto
+Source2:        RPM-GPG-KEY-OSG-26-dev
+Source3:        RPM-GPG-KEY-OSG-26-auto
 
 
 %if 0%{?x86_64_v2}
@@ -110,6 +110,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Tue Aug 25 2026 Tim Theisen <tim@cs.wisc.edu> - 26.0-1
+- HTCondor 26.0 repository definition
+
 * Tue Sep 09 2025 Tim Theisen <tim@cs.wisc.edu> - 25.x-1
 - HTCondor 25.x repository definition
 
