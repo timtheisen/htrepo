@@ -12,7 +12,7 @@
 %endif
 
 Name:           htcondor-release
-Version:        25.0
+Version:        26.0
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
