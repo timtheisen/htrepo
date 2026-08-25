@@ -12,7 +12,7 @@
 %endif
 
 Name:           htcondor-release
-Version:        26.0
+Version:        26.x
 Release:        1%{?dist}
 Summary:        HTCondor Software for Enterprise Linux repository configuration
 
@@ -110,6 +110,9 @@ rm -f *.repo
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Tue Aug 25 2026 Tim Theisen <tim@cs.wisc.edu> - 26.x-1
+- HTCondor 26.x repository definition
+
 * Tue Aug 25 2026 Tim Theisen <tim@cs.wisc.edu> - 26.0-1
 - HTCondor 26.0 repository definition
 
